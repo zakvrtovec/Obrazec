@@ -1,0 +1,53 @@
+*{
+    margin:0;
+    padding:0;
+}
+html, body{
+    height:100%-20px;
+    width:100%;
+}
+@font-face {
+    font-family: Premier;
+    src: url(fonts/Premier.ttf);
+}
+body{
+    font-family: Premier;
+    background-color:lightblue;
+}
+.glavni{
+    height:100%;
+    width:100%;
+    margin-top:20px;
+}
+.signin{
+    width:40%;
+    height:800px;
+    margin:0 auto;
+    border:solid black 2px;
+}
+.glava{
+	width:100%;
+    height:10%;
+    background-color:rgb(233,0,82);
+    color:white;
+    font-size:8px;
+}
+.glava div{
+    width:100%;
+    height:100%;
+}
+.vsebina{
+	width:100%;
+	height:90%;
+    background-color:white;
+}
+.email{
+	width:100%;
+	height:80px;
+}
+.label1{
+	width:100%;
+}
+.input1{
+	width:100%;
+}
