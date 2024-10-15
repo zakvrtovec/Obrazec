@@ -25,11 +25,13 @@ body{
     border:solid black 2px;
 }
 .glava{
-	width:100%;
+	width:95%;
     height:40px;
     background-color:rgb(233,0,82);
     color:white;
     font-size: 20px;
+    line-height: 39px;
+    padding-left: 5%;
 }
 .vsebina{
     background-color:white;
@@ -45,7 +47,7 @@ body{
     width:90%;
     float:left;
     position:relative;
-    height:5%;
+    height:4%;
 }
 .desno{
     width:5%;
@@ -55,19 +57,88 @@ body{
 }
 .forma{
     width:90%;
-    height:95%;
+    height:300px;
     float:left;
     position:relative;
 }
 .email{
-	height:250px;
+	height:100px;
     width:100%;
 }
 .geslo{
-	height:250px;
+	height:120px;
     width:100%;
 }
 .buttn{
-    height:165px;
+    height:80px;
     width:100%;
+}
+.line{
+    width:90%;
+    height:30px;
+    position:relative;
+    float:left;
+    text-align: center;
+}
+.line::before,.line::after {
+    content: "";
+    position: absolute;
+    top: 38%;
+    width: 30%; /* Širina črt */
+    height: 1px; /* Debelina črt */
+    background: rgb(177, 175, 175); /* Barva črt */
+}
+.line::before {
+    left: 10%;
+}
+.line::after {
+    right: 10%;
+}
+.line span {
+    background: white;
+    padding: 10px 10px 0 10px; /* Odmik besedila od črt */
+    font-size:15px;
+}
+.input1{
+    width:100%;
+}
+.input1 input{
+    width:95%;
+    height:50px;
+    border:none;
+    border-bottom:solid black 1px;
+    padding-left:3%;
+    background-color:rgb(232,232,232);
+}
+.input2{
+    width:100%;
+}
+.input2 input{
+    width:95%;
+    height:50px;
+    border:none;
+    border-bottom:solid black 1px;
+    padding-left:3%;
+    background-color:rgb(232,232,232);
+}
+.buttn a{
+    display:block;
+    width:50%;
+    float:left;
+    height:40px;
+    line-height:43px;
+    color:red;
+    text-decoration:none;
+    font-size:14px;
+}
+.buttn input{
+    width:48%;
+    float:left;
+    background-color:rgb(55,0,60);
+    border:none;
+    color:white;
+    height:40px;
+}
+.buttn input:hover{
+    background-color:black;
 }
