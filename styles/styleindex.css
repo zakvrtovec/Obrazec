@@ -277,6 +277,6 @@ body{
     border-radius:3px;
 }
 .registracija:hover{
-    background-color: pink;
+    background-color: grey;
     color:black;
 }
