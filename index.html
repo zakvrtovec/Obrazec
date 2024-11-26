@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="styles/styleindex.css">
+    <link rel="icon" type="image/x-icon" href="images/pl_logo.png">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Login</title>
+</head>
+<body>
+    <div class="glavni">
+        <div class="signin">
+            <div class="glava">
+                Sign In
+            </div>
+            <div class="vsebina">
+                <div class="levo"></div>
+                <div class="gor"></div>
+                <div class="forma">
+                    <form method="action">
+                        <div class="email">
+                            <div class="label1">
+                                <label for="mejl">Email Address</label>
+                            </div>
+                            <div class="input1">
+                                <input type="mail" placeholder="Email Address" id="mejl" class="gmejl" maxlength="30">
+                            </div>
+                        </div>
+                        <div class="geslo">
+                            <div class="label2">
+                                <label for="passwd">Password</label>
+                            </div>
+                            <div class="input2">
+                                <input type="password" placeholder="Password" id="passwd" class="geslu" maxlength="30">
+                            </div>
+                        </div>
+                        <div class="buttn">
+                            <a href="" class="reset">Forgot login details?</a>
+                            <button class="prijava">Sign in</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="desno"></div>
+                <div class="line">
+                    <span>or login with</span>
+                </div>
+                <div class="soc-login">
+                    <a href="" class="facebook-buttn">
+                        <div class="slika"><img src="images/icon-facebook.svg"></div>
+                        <div class="zamik"></div>
+                        <div class="napis">Login with Facebook</div>   
+                    </a>
+                    <a href="" class="twitter-buttn">
+                        <div class="slika1"><img src="images/icon-twitter.svg"></div>
+                        <div class="zamik"></div>
+                        <div class="napis1">Login with X</div>   
+                    </a>
+                    <a href="" class="google-buttn">
+                        <div class="slika2"><img src="images/google-logo.png"></div>
+                        <div class="zamik"></div>
+                        <div class="napis2">Login with Google</div>   
+                    </a>
+                    <a href="" class="apple-buttn">
+                        <div class="slika3"><img src="images/icon-apple.svg"></div>
+                        <div class="zamik"></div>
+                        <div class="napis3">Login with Apple</div>   
+                    </a>
+                </div>
+                <div class="reg">
+                    <div class="row1">Dont have a Premier League account yet?</div>
+                    <div class="row2">In that case, you should:</div>
+                    <div class="l"></div>
+                    <div class="register"><a href="registracija1.html" class="registracija">Register</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    // Function to validate email
+    function isValidEmail(email) {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailPattern.test(email);
+    }
+
+    // Function to validate password
+    function isValidPassword(password) {
+        if (password.length < 8) {
+            Swal.fire({
+                title: 'Your password must be at least 8 characters long.',
+                icon: 'warning',
+                color: 'black',
+                iconColor: 'red',
+                confirmButtonColor: 'black',
+                confirmButtonText: 'OK'
+            });
+            return false;
+        }
+        if (!/[A-Z]/.test(password)) {
+            Swal.fire({
+                title: 'Password must contain at least one uppercase letter.',
+                icon: 'warning',
+                color: 'black',
+                iconColor: 'red',
+                confirmButtonColor: 'black',
+                confirmButtonText: 'OK'
+            });
+            return false;
+        }
+        if (!/[0-9]/.test(password)) {
+            Swal.fire({
+                title: 'Password must contain at least one number.',
+                icon: 'warning',
+                color: 'black',
+                iconColor: 'red',
+                confirmButtonColor: 'black',
+                confirmButtonText: 'OK'
+            });
+            return false;
+        }
+        if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+            Swal.fire({
+                title: 'Password must contain at least one special character.',
+                icon: 'warning',
+                color: 'black',
+                iconColor: 'red',
+                confirmButtonColor: 'black',
+                confirmButtonText: 'OK'
+            });
+            return false;
+        }
+        return true;
+    }
+
+    // Function to toggle the 'error' class on inputs
+    function toggleErrorClass(inputElement, hasError) {
+        if (hasError) {
+            inputElement.classList.add('error');
+        } else {
+            inputElement.classList.remove('error');
+        }
+    }
+
+    // Event listener for the button
+    document.querySelector('.prijava').addEventListener('click', (event) => {
+        // Prevent form submission
+        event.preventDefault();
+
+        const emailInput = document.querySelector('#mejl');
+        const passwordInput = document.querySelector('#passwd');
+
+        const email = emailInput.value.trim();
+        const password = passwordInput.value.trim();
+
+        // Reset error classes before validating
+        toggleErrorClass(emailInput, false);
+        toggleErrorClass(passwordInput, false);
+
+        // Check if email input is empty
+        if (email === '') {
+            toggleErrorClass(emailInput, true);  // Add 'error' class
+            Swal.fire({
+                title: 'Email is required!',
+                icon: 'warning',
+                color: 'black',
+                iconColor: 'red',
+                confirmButtonColor: 'black',
+                confirmButtonText: 'OK'
+            });
+            return;
+        }
+
+        // Validate email
+        if (!isValidEmail(email)) {
+            toggleErrorClass(emailInput, true);  // Add 'error' class
+            Swal.fire({
+                title: 'Invalid Email',
+                icon: 'warning',
+                color: 'black',
+                iconColor: 'red',
+                confirmButtonColor: 'black',
+                confirmButtonText: 'OK'
+            });
+            return;
+        }
+
+        // Check if password input is empty
+        if (password === '') {
+            toggleErrorClass(passwordInput, true);  // Add 'error' class
+            Swal.fire({
+                title: 'Password is required!',
+                icon: 'warning',
+                color: 'black',
+                iconColor: 'red',
+                confirmButtonColor: 'black',
+                confirmButtonText: 'OK'
+            });
+            return;
+        }
+
+        // Validate password
+        if (!isValidPassword(password)) {
+            toggleErrorClass(passwordInput, true);  // Add 'error' class
+            return;
+        }
+
+        // If all validations pass, success message
+        Swal.fire({
+            title: 'Sign In successful',
+            icon: 'success',
+            color: 'black',
+            iconColor: 'green',
+            confirmButtonColor: 'black',
+            confirmButtonText: 'OK'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Redirect only after the alert is closed
+                window.location.href = "index.html";
+            }
+        });
+    });
+</script>
+</html>
